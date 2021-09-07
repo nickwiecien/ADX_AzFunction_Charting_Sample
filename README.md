@@ -17,4 +17,6 @@ Before running this project, create a `local.settings.json` file in the root dir
 
 For more instructions on configuring service principal access to ADX [please review the following document](https://docs.microsoft.com/en-us/azure/data-explorer/manage-database-permissions).
 
+For details on configuring either a local or cloud development environment for python Function Apps, [please refer to the developer guide here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python).
+
 When deploying this code to a Function App in Azure it is recommended to store sensitive keys and secrets in Azure Key Vault, and then reference these as environment variables in your app configuration. [See this document for more details](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references).
