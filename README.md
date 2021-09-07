@@ -25,7 +25,7 @@ When deploying this code to a Function App in Azure it is recommended to store s
 The query below identifies anomalies a provided time-series which are both flagged by `series_compose_anomalies()` and fall outside of a user defined range.
 
 ```
-"TestTable
+TestTable
 | where device_id == 'device0001' 
 | make-series telemetry_series=avg(val_1), high_threshold_series=(25), low_threshold_series=(-25), all_zero=(0) on event_time step 1s 
 | extend (anomalies, score, baseline) = series_decompose_anomalies(telemetry_series, 0.1, -1, 'none') 
@@ -34,5 +34,5 @@ The query below identifies anomalies a provided time-series which are both flagg
 | extend true_anomalies = series_multiply(anomaly_points, threshold_points) 
 | extend anomalies_display = series_multiply(true_anomalies, anomalies) 
 | extend anomaly_stats = series_stats_dynamic(true_anomalies, true) 
-| extend anomaly_point_count = anomaly_stats['sum']"
+| extend anomaly_point_count = anomaly_stats['sum']
 ```
